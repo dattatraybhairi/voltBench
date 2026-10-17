@@ -1,0 +1,6 @@
+{
+  "name": "VoltBench Electronics Lab",
+  "description": "Real-time electronic circuit simulator, oscilloscope workbench, component I-V curve verifier, and standalone HTML lab generator for electronics enthusiasts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
