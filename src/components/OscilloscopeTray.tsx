@@ -9,6 +9,7 @@ export interface ScopeSample {
 interface OscilloscopeTrayProps {
   samples: ScopeSample[];
   isRunning: boolean;
+  theme?: 'dark' | 'light';
   onToggleRun: () => void;
   onClearTrace: () => void;
 }
@@ -16,9 +17,11 @@ interface OscilloscopeTrayProps {
 export const OscilloscopeTray: React.FC<OscilloscopeTrayProps> = ({
   samples,
   isRunning,
+  theme = 'dark',
   onToggleRun,
   onClearTrace,
 }) => {
+  const isLight = theme === 'light';
   const [voltsPerDiv, setVoltsPerDiv] = useState<number>(5);
   const [showCh1, setShowCh1] = useState<boolean>(true);
   const [showCh2, setShowCh2] = useState<boolean>(true);
@@ -163,7 +166,7 @@ export const OscilloscopeTray: React.FC<OscilloscopeTrayProps> = ({
               y1={0}
               x2={(width / 10) * col}
               y2={height}
-              stroke="#1E293B"
+              stroke={isLight ? '#E2E8F0' : '#1E293B'}
               strokeWidth={1}
             />
           ))}
@@ -174,27 +177,60 @@ export const OscilloscopeTray: React.FC<OscilloscopeTrayProps> = ({
               y1={(height / 4) * row}
               x2={width}
               y2={(height / 4) * row}
-              stroke={row === 2 ? '#334155' : '#1E293B'}
+              stroke={
+                row === 2
+                  ? isLight
+                    ? '#94A3B8'
+                    : '#334155'
+                  : isLight
+                  ? '#E2E8F0'
+                  : '#1E293B'
+              }
               strokeWidth={row === 2 ? 1.5 : 1}
             />
           ))}
 
-          <text x={6} y={midY - 4} className="fill-slate-500 text-[9px] font-mono">
+          <text
+            x={6}
+            y={midY - 4}
+            fill={isLight ? '#475569' : '#64748B'}
+            className="text-[9px] font-mono"
+          >
             0V
           </text>
-          <text x={6} y={12} className="fill-slate-500 text-[9px] font-mono">
+          <text
+            x={6}
+            y={12}
+            fill={isLight ? '#475569' : '#64748B'}
+            className="text-[9px] font-mono"
+          >
             +{(voltsPerDiv * 2).toFixed(0)}V
           </text>
-          <text x={6} y={height - 5} className="fill-slate-500 text-[9px] font-mono">
+          <text
+            x={6}
+            y={height - 5}
+            fill={isLight ? '#475569' : '#64748B'}
+            className="text-[9px] font-mono"
+          >
             -{(voltsPerDiv * 2).toFixed(0)}V
           </text>
 
           {showCh1 && ch1Points && (
-            <polyline fill="none" stroke="#06B6D4" strokeWidth={2.2} points={ch1Points} />
+            <polyline
+              fill="none"
+              stroke={isLight ? '#0284C7' : '#06B6D4'}
+              strokeWidth={2.2}
+              points={ch1Points}
+            />
           )}
 
           {showCh2 && ch2Points && (
-            <polyline fill="none" stroke="#F59E0B" strokeWidth={2.2} points={ch2Points} />
+            <polyline
+              fill="none"
+              stroke={isLight ? '#D97706' : '#F59E0B'}
+              strokeWidth={2.2}
+              points={ch2Points}
+            />
           )}
 
           {hoverIdx !== null && samples.length > 1 && (

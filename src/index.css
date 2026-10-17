@@ -11,6 +11,12 @@
     background-color: #0B0E17;
     color: #F1F5F9;
     overflow-x: hidden;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  html.light body {
+    background-color: #F1F5F9;
+    color: #0F172A;
   }
 
   code, pre, .font-mono {
@@ -21,4 +27,87 @@
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;
+}
+
+/* Crisp Engineering Daylight (Light Theme) Surface & Ink Remapping */
+html.light .bg-\[\#0B0E17\] {
+  background-color: #F1F5F9 !important;
+}
+
+html.light .bg-\[\#111827\],
+html.light .bg-\[\#111827\]\/95,
+html.light .bg-\[\#111827\]\/85 {
+  background-color: #FFFFFF !important;
+}
+
+html.light .bg-\[\#07090E\] {
+  background-color: #F8FAFC !important;
+}
+
+html.light .bg-slate-900,
+html.light .bg-slate-900\/90,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-900\/50,
+html.light .bg-slate-950 {
+  background-color: #F1F5F9 !important;
+}
+
+html.light .bg-slate-800 {
+  background-color: #E2E8F0 !important;
+}
+
+html.light .hover\:bg-slate-800:hover,
+html.light .hover\:bg-slate-700:hover {
+  background-color: #CBD5E1 !important;
+}
+
+html.light .border-slate-800,
+html.light .border-slate-800\/90,
+html.light .border-slate-800\/80,
+html.light .border-slate-700,
+html.light .border-slate-700\/80 {
+  border-color: #CBD5E1 !important;
+}
+
+html.light .divide-slate-800\/80 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #E2E8F0 !important;
+}
+
+html.light .text-slate-100,
+html.light .text-slate-200,
+html.light .text-white {
+  color: #0F172A !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light .text-cyan-400,
+html.light .text-cyan-300,
+html.light .text-cyan-200 {
+  color: #0284C7 !important;
+}
+
+html.light .text-amber-400,
+html.light .text-amber-300 {
+  color: #D97706 !important;
+}
+
+html.light .text-emerald-400,
+html.light .text-emerald-300 {
+  color: #059669 !important;
+}
+
+html.light .text-rose-400,
+html.light .text-rose-300 {
+  color: #E11D48 !important;
+}
+
+html.light .bg-cyan-950\/30 {
+  background-color: #E0F2FE !important;
 }
